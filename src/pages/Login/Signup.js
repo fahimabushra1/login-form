@@ -15,7 +15,19 @@ const Signup = () => {
         error1,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    if (user) {
+
+    if (error1) {
+        return (
+            <div>
+                <p>Error: {error.message}</p>
+            </div>
+        );
+    }
+    if (loading1) {
+        return <p>Loading...</p>;
+    }
+
+    if (user || user1) {
         navigate('/')
     }
 
